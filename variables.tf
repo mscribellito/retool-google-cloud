@@ -49,6 +49,11 @@ variable "retool_license_key" {
   description = "Retool license key from https://my.retool.com"
 }
 
+variable "retool_domain" {
+  type        = string
+  description = "Retool domain name"
+}
+
 variable "roles" {
   type = list(string)
   default = [

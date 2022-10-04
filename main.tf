@@ -26,6 +26,10 @@ resource "google_project_iam_member" "project" {
 data "google_compute_zones" "available" {
 }
 
+resource "google_compute_address" "compute_address" {
+  name = "retool"
+}
+
 resource "google_compute_instance" "compute_instance" {
   name         = "retool"
   machine_type = var.machine_type
@@ -42,12 +46,14 @@ resource "google_compute_instance" "compute_instance" {
   network_interface {
     network = var.network
     access_config {
+      nat_ip = google_compute_address.compute_address.address
     }
   }
 
   metadata_startup_script = templatefile("retool.sh", {
     version     = var.retool_version
     license_key = var.retool_license_key
+    domain      = var.retool_domain
   })
 
   service_account {
