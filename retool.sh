@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Retool install
 # https://github.com/tryretool/retool-onpremise#gcp-deploy-with-compute-engine-virtual-machine
 
@@ -5,14 +7,14 @@
 curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
 bash add-google-cloud-ops-agent-repo.sh --also-install
 
-# Clone Retool self-hosted repository
+# Clone Retool repository
 git clone https://github.com/tryretool/retool-onpremise.git
 cd retool-onpremise
 
 # Specify desired version number of Retool
 sed -i 's/X.Y.Z/${version}/' Dockerfile
 
-# Install docker container, docker & docker-compose
+# Initialize Docker and Retool Installation
 ./install.sh
 
 # Add license key
@@ -23,5 +25,5 @@ sed -i '/DOMAINS=/c\DOMAINS=${domain} -> http://api:3000' docker.env
 sed -i '/BASE_DOMAIN=/c\BASE_DOMAIN=https://${domain}' docker.env
 sed -i "s/STAGE: 'local'/STAGE: 'production'/" docker-compose.yml
 
-# Start the Retool docker containers
+# Run services
 docker-compose up -d
