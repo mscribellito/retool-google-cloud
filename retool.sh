@@ -16,10 +16,10 @@ sed -i 's/X.Y.Z/${version}/' Dockerfile
 ./install.sh
 
 # Add license key
-sed -i '/LICENSE_KEY=/c\LICENSE_KEY=${license_key}/' docker.env
+sed -i '/LICENSE_KEY=/c\LICENSE_KEY=${license_key}' docker.env
 
 # Configure domain and HTTPS - https://docs.retool.com/docs/custom-internal-ca#connect-to-retool-with-https
-sed -i '/DOMAINS=/c\DOMAINS=${domain} -> http://api:3000/' docker.env
+sed -i '/DOMAINS=/c\DOMAINS=${domain} -> http://api:3000' docker.env
 sed -i '/BASE_DOMAIN=/c\BASE_DOMAIN=https://${domain}' docker.env
 sed -i "s/STAGE: 'local'/STAGE: 'production'/" docker-compose.yml
 
