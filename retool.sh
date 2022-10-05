@@ -1,7 +1,7 @@
 # Retool install
 # https://github.com/tryretool/retool-onpremise#gcp-deploy-with-compute-engine-virtual-machine
 
-# Instal the Ops Agent - https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/installation#install-latest-version
+# Install the Ops Agent - https://cloud.google.com/stackdriver/docs/solutions/agents/ops-agent/installation#install-latest-version
 curl -sSO https://dl.google.com/cloudagents/add-google-cloud-ops-agent-repo.sh
 bash add-google-cloud-ops-agent-repo.sh --also-install
 
