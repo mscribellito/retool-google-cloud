@@ -42,6 +42,11 @@ variable "network" {
 variable "retool_version" {
   type        = string
   description = "Retool version number from https://docs.retool.com/docs/self-hosted-release-notes"
+
+  validation {
+    condition     = can(regex("\\d+\\.\\d+\\.\\d+", var.retool_version))
+    error_message = "Must be valid Retool version number such as X.Y.Z."
+  }
 }
 
 variable "retool_license_key" {

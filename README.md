@@ -1,6 +1,6 @@
 # Self-hosted Retool on Google Cloud
 
-Deploy a single, self-hosted Retool instance on a VM in Google Cloud.
+Deploy a single, self-hosted [Retool](https://retool.com/) instance on a VM in Google Cloud.
 
 ## Config
 
