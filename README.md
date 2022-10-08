@@ -2,6 +2,8 @@
 
 Retool is a low-code platform for building internal apps from different data sources. It can also be self-hosted for compliance and on-premises purposes. Deploy a single, self-hosted [Retool](https://retool.com/) instance with automated install on a VM in Google Cloud.
 
+This is a self-contained instance with all required services and database on the VM. This can be further expanded upon to host Retool services on Google Kubernetes Engine and the database on Cloud SQL.
+
 ## Config
 
 Create a tfvars file using the minimum example below.
